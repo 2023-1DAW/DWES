@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios de clase: arrays y funciones</title>
+    <title>Ejercicios de clase 2: arrays</title>
 </head>
 
 <body>
@@ -19,6 +19,7 @@
     }
     echo "</p>";
 
+    ###########################################################################
     echo "<h2>Ejercicio 2</h2>";
     $suma = 0;
     $max = $aleatorios[0];
@@ -35,6 +36,7 @@
     echo "<p>La suma es $suma. La media es " . $suma / count($aleatorios) .
         ". El máximo es $max, y el mínimo es $min.</p>";
 
+    ###########################################################################
     echo "<h2>Ejercicio 3</h2>";
     $alturas = ["Fatima" => 1.70, "Luz" => 1.68, "Amir" => 1.81, "Pedro" => 1.74, "María" => 1.75];
     echo "<table border=1><tr><th>Nombre</th><th>Altura</th></tr>";
@@ -45,6 +47,7 @@
     }
     echo "<tr><td>MEDIA</td><td>" . $suma / count($alturas) . "</td></tr></table>";
 
+    ###########################################################################
     echo "<h2>Ejercicio 4</h2>";
     for ($i = 0; $i < 10; $i++) {
         $numeros[$i] = rand(0, 100);
@@ -58,7 +61,7 @@
     }
     echo "</table>";
 
-
+    ###########################################################################
     echo "<h2>Ejercicio 5</h2>";
     $alumnado = ["Fatima", "Alberto", "Amir", "Denis"];
     $notas = [7.8, 4.1, 6.8, 9.3];
@@ -73,9 +76,9 @@
         }
         echo "está matriculade.</li>";
     }
-
     echo "</ul>";
 
+    ###########################################################################
     echo "<h2>Ejercicio 6</h2>";
     $temp = [
         "Enero" => 14.8,
@@ -101,6 +104,7 @@
     }
     echo "</tr></table>";
 
+    ###########################################################################
     echo "<h2>Ejercicio 7</h2>";
     echo "<table border=1>";
     foreach ($temp as $m => $t) {
@@ -113,6 +117,7 @@
 
     echo "</table>";
 
+    ###########################################################################
     echo "<h2>Ejercicio 8</h2>";
     $tempMaxMin = [
         "Enero" => [14.8, -1.8],
@@ -134,10 +139,41 @@
     }
     echo "</table>";
 
+    ###########################################################################
     echo "<h2>Ejercicio 9</h2>";
+    $numeros = [
+        ["as", 11],
+        ["dos", 0],
+        ["tres", 10],
+        ["cuatro", 0],
+        ["cinco", 0],
+        ["seis", 0],
+        ["siete", 0],
+        ["sota", 2],
+        ["caballo", 3],
+        ["rey", 4]
+    ];
+    $palos = ["oros", "copas", "espadas", "bastos"];
+    $puntos = 0;
+    for ($i = 0; $i < 10; $i++) {
+        $n = rand(0, count($numeros) - 1);
+        $p = rand(0, count($palos) - 1);
+        $cartas[] = $numeros[$n][0] . " de " . $palos[$p];
+        $puntos += $numeros[$n][1];
+    }
+    echo "<p>Aquí hay 10 cartas aleatorias:</p><ul>";
+    foreach ($cartas as $c) {
+        echo "<li>$c</li>";
+    }
+    echo "</ul>";
+    echo "<p>El total de puntos es $puntos.</p>";
 
+    ###########################################################################
+    
     echo "<h2>Ejercicio 10</h2>";
 
+
+    ###########################################################################
     echo "<h2>Ejercicio 11</h2>";
     $dicc = [
         "Desarrollo" => "Development",
@@ -151,7 +187,7 @@
     ];
     $aleat = rand(0, count($dicc) - 1);
     foreach ($dicc as $esp => $eng) {
-        if ($aleat == 0){
+        if ($aleat == 0) {
             echo "<p>$esp - $eng</p>";
         }
         $aleat--;
