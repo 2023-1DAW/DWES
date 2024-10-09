@@ -1,0 +1,16 @@
+body{
+    background-color: beige;
+}
+
+th.x{
+    background-color: aqua;
+}
+th.horizontal{
+    background-color: darkgreen;   
+}
+th.vertical{
+    background-color:darkseagreen;   
+}
+table td, th{
+    padding: 10px;
+}
