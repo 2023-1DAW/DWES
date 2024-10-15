@@ -9,6 +9,19 @@
 
 <body>
     <?php
+    echo "<h2>ESPACIOS</h2>";
+    for ($i = 0; $i < 10; $i++) {
+        echo "&nbsp;";
+    }
+    echo "hola";
+    //          hola
+
+
+
+
+
+
+
     echo "<h2>Ejercicio 1</h2>";
     for ($i = 0; $i < 20; $i++) {
         $aleatorios[] = rand(10, 50);
@@ -169,8 +182,31 @@
     echo "<p>El total de puntos es $puntos.</p>";
 
     ###########################################################################
-    
+
     echo "<h2>Ejercicio 10</h2>";
+    if (isset($cartas)){
+        unset($cartas);
+    }
+    $puntos = 0;
+    for ($i = 0; $i < 10; $i++) {
+        $n = rand(0, count($numeros) - 1);
+        $p = rand(0, count($palos) - 1);
+        //Verifico si había salido ya
+        $carta = $numeros[$n][0] . " de " . $palos[$p];
+        while ($i != 0 and in_array($carta, $cartas)) {
+            $n = rand(0, count($numeros) - 1);
+            $p = rand(0, count($palos) - 1);
+            $carta = $numeros[$n][0] . " de " . $palos[$p];
+        }
+        $cartas[] = $carta;
+        $puntos += $numeros[$n][1];
+    }
+    echo "<p>Aquí hay 10 cartas aleatorias:</p><ul>";
+    foreach ($cartas as $c) {
+        echo "<li>$c</li>";
+    }
+    echo "</ul>";
+    echo "<p>El total de puntos es $puntos.</p>";
 
 
     ###########################################################################
@@ -195,9 +231,15 @@
 
 
     echo "<h2>Ejercicio 12</h2>";
+    $numeros = [];
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 10; $j++) {
-            $bi[$i][$j] = rand(0, 500);
+            $aleat = rand(0, 500);
+            while (in_array($aleat, $numeros)){
+                $aleat = rand(0, 500);
+            }
+            $bi[$i][$j] = $aleat;
+            $numeros[] = $aleat;
         }
     }
     echo "<table border=1>";
