@@ -9,19 +9,6 @@
 
 <body>
     <?php
-    echo "<h2>ESPACIOS</h2>";
-    for ($i = 0; $i < 10; $i++) {
-        echo "&nbsp;";
-    }
-    echo "hola";
-    //          hola
-
-
-
-
-
-
-
     echo "<h2>Ejercicio 1</h2>";
     for ($i = 0; $i < 20; $i++) {
         $aleatorios[] = rand(10, 50);
@@ -184,7 +171,7 @@
     ###########################################################################
 
     echo "<h2>Ejercicio 10</h2>";
-    if (isset($cartas)){
+    if (isset($cartas)) {
         unset($cartas);
     }
     $puntos = 0;
@@ -235,7 +222,7 @@
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 10; $j++) {
             $aleat = rand(0, 500);
-            while (in_array($aleat, $numeros)){
+            while (in_array($aleat, $numeros)) {
                 $aleat = rand(0, 500);
             }
             $bi[$i][$j] = $aleat;
