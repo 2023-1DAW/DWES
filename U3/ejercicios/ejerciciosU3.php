@@ -218,19 +218,34 @@
 
 
     echo "<h2>Ejercicio 12</h2>";
-    $numeros = [];
+    
+    $array=[];
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 10; $j++) {
-            $aleat = rand(0, 500);
-            while (in_array($aleat, $numeros)) {
-                $aleat = rand(0, 500);
+            $numero = rand(0, 200);
+            while (contiene($numero, $array)) {
+                $numero = rand(0, 500);
             }
-            $bi[$i][$j] = $aleat;
-            $numeros[] = $aleat;
+            $array[$i][$j] = $numero;
         }
     }
+
+    function contiene($elemento, $bidimensional)
+    {
+        if (!isset($bidimensional)){
+            return false;
+        }
+        for ($i = 0; $i < count($bidimensional); $i++) {
+            for ($j = 0; $j < count($bidimensional[$i]); $j++) {
+                if ($elemento == $bidimensional[$i][$j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     echo "<table border=1>";
-    foreach ($bi as $filas) {
+    foreach ($array as $filas) {
         echo "<tr>";
         foreach ($filas as $n) {
             echo "<td>$n</td>";
