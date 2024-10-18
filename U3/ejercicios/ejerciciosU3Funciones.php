@@ -126,18 +126,21 @@
     var_dump(arrayPares([2, 4, 6, 8, 0]));
 
     echo "<h2>Ejercicio 10</h2>";
-    function digitos($num){
+    function digitos($num)
+    {
         return strlen($num);
     }
     var_dump(digitos(12345));
     var_dump(digitos(0));
 
     echo "<h2>Ejercicio 11</h2>";
-    define ("DK", 0.13);
-    function dk2eur($cant){
+    define("DK", 0.13);
+    function dk2eur($cant)
+    {
         return $cant * DK;
     }
-    function eur2dk($cant){
+    function eur2dk($cant)
+    {
         return $cant / DK;
     }
     echo "<p>100 euros son " . eur2dk(100) . " coronas danesas</p>";
@@ -147,9 +150,19 @@
     function modifica(&$numero, $cantidad){
         $numero += $cantidad;
     }
-    $a = 5;
-    modifica($a, 3);
-    var_dump($a);
+    $a = 1;
+    $b = 3;
+    modifica($a, $b);
+    echo "<p>a es $a --- b es $b</p>";  //a es 4 --- b es 3
+
+    function modificaPorValor($numero, $cantidad){
+        $numero += $cantidad;
+        return $numero;
+    }
+    $a = 1;
+    $b = 3;
+    $a = modificaPorValor($a, $b);
+    echo "<p>a es $a --- b es $b</p>";  //a es 4 --- b es 3
 
     ?>
 </body>
