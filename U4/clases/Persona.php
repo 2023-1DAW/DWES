@@ -6,7 +6,15 @@ class Persona
     private int $edad;
     private bool $conduce;
 
-    //Constructores
+    //Constructor
+    //Requisito de la clase: si solo conozco el nombre y la edad, el boolean conducir será false
+    // Otro requisito: si no conozco la edad en el momento de crear el objeto, será -1.
+    public function __construct(String $nombre, int $edad = -1, bool $conduce = false)
+    {
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+        $this->conduce = $conduce;
+    }
 
     //Getters y setters
     public function  getNombre(): String
@@ -37,8 +45,6 @@ class Persona
         $this->conduce = $conduce;
     }
 
-
-
     //Métodos
     public function esMayorDeEdad(): bool
     {
@@ -61,10 +67,35 @@ class Persona
             return true;
         }
     }
+
+
+
+    //Función que se llama info y DEVUELVE (no imprime) un String con la información del objeto
+    //Por ejemplo: "Alberto tiene 29 años y sí sabe conducir"
+    //Por ejemplo: "Julia tiene 40 años y no sabe conducir"
+    public function info(): string
+    {
+        $ret = $this->nombre . " tiene " . $this->edad . " años y ";
+        if ($this->conduce) {
+            $ret .= "sí";
+        } else {
+            $ret .= "no";
+        }
+        $ret .= " sabe conducir";
+        return $ret;
+    }
 }
 
-$p = new Persona();
-$p->setNombre("Juan");
+$p1 = new Persona("Alberto", 29, true);
+//$p = new Persona();   //Al hacer un constructor con parámetros, ya no puedo utilizar el vacío.
+/*$p->setNombre("Juan");
 $p->setEdad(22);
-$p->setConduce(false);
-echo $p->getNombre() . " -- Edad: " .  $p->getEdad();
+$p->setConduce(false);*/
+echo $p1->getNombre() . " -- Edad: " .  $p1->getEdad();
+$p2 = new Persona("Julia", 40);
+echo $p2->getNombre() . " -- Edad: " .  $p2->getEdad();
+$p3 = new Persona("Luz");
+echo $p3->getNombre() . " -- Edad: " .  $p3->getEdad();
+
+$p4 = new Persona("Lucia", 19, false);
+echo $p4->info();
