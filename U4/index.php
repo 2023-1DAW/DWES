@@ -27,6 +27,20 @@
     echo $p->getOtro();
     $p2 = new Punto(7, 9, "rojo");
     echo "<br>$p2";
+    ?>
+
+    <h2>Pruebas con las clases de animales</h2>
+    <?php
+    require_once "./Animal.php"; //Este sobraría, pero como tiene _once no hay problema
+    require_once "./Perro.php";
+    require_once "./Leon.php";
+    $a = new Animal("herv");
+    $p = new Perro("car");
+    echo "<p>" . $p->ladrar() . "</p>";
+    $l = new Leon("c", 3, false);
+    echo "<p>" . $l->rugir() . "</p>";
+    echo "<p>$p</p>";
+    echo "<p>$l</p>";
 
     ?>
 
