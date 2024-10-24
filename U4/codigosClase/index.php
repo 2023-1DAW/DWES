@@ -31,9 +31,9 @@
 
     <h2>Pruebas con las clases de animales</h2>
     <?php
-    require_once "./Animal.php"; //Este sobraría, pero como tiene _once no hay problema
-    require_once "./Perro.php";
-    require_once "./Leon.php";
+    require_once "./clases/Animal.php"; //Este sobraría, pero como tiene _once no hay problema
+    require_once "./clases/Perro.php";
+    require_once "./clases/Leon.php";
     $a = new Animal("herv");
     $p = new Perro("car");
     echo "<p>" . $p->ladrar() . "</p>";
@@ -42,6 +42,22 @@
     echo "<p>$p</p>";
     echo "<p>$l</p>";
 
+    ?>
+
+    <h2>Pruebas con los poligonos</h2>
+    <?php
+    require_once "./clases/Poligono.php";
+    require_once "./clases/TrianguloEquilatero.php";
+    $t1 = new TrianguloEquilatero(4.8, 5.3);
+    var_dump($t1->calcularArea());
+    var_dump($t1->calcularPerimetro());
+    echo "<p>$t1</p>";
+    $t2 = new TrianguloEquilatero(1.8, 3.3, "rojo");
+    var_dump($t2->calcularArea());
+    var_dump($t2->calcularPerimetro());
+    echo "<p>$t2</p>";
+    //$p = new Poligono(5); //Error: no puedo instanciar una clase abstracta
+    
     ?>
 
 </body>
