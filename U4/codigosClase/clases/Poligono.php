@@ -17,4 +17,9 @@ abstract class Poligono
 
     public abstract function calcularArea(): float;
     public abstract function calcularPerimetro(): float;
+
+    public final function cambiarColor($nuevoColor)
+    {
+        $this->color = $nuevoColor;
+    }
 }

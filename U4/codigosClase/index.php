@@ -57,8 +57,69 @@
     var_dump($t2->calcularPerimetro());
     echo "<p>$t2</p>";
     //$p = new Poligono(5); //Error: no puedo instanciar una clase abstracta
-    
+
+    $t2->cambiarColor("azul");
+    var_dump($t2);
+
+    //Estáticas:
+
+    $t3 = new TrianguloEquilatero(5, 6);
+    var_dump($t3->calcularArea());  //15
+    //Esto se puede hacer, pero es raro llamar a un método estático desde un objeto
+    var_dump($t3->calcularAreaTriangulo(7, 10)); //35
+
+    //Para llamar a un método estático:
+    var_dump(TrianguloEquilatero::calcularAreaTriangulo(7, 10));
+
+    //Si llamamos a un traibuto estático lo que hace en realidad es 
+    //crear un no estático y asignarle el valos a ese atributo de ese objeto.
+    $t3->id = 3;
+    var_dump($t3->id);  // 3
+
+    $t2->id = 2;
+    var_dump($t2);  // 2
+
+    var_dump($t3);  // A. 2      B. 3
+    //Para acceder a un atributo estático:
+
+
+    TrianguloEquilatero::$id = 9;
+    var_dump(TrianguloEquilatero::$id);
+
     ?>
+
+    <h2>Métodos de PHP para trabajar con clases</h2>
+
+    <?php
+    require_once "./clases/Cuadrado.php";
+    $c1 = new Cuadrado(4);
+    if ($c1 instanceof Cuadrado) {
+        echo "<p>Sí 1</p>"; //Sí
+    } else {
+        echo "<p>No 1</p>";
+    }
+
+    if ($c1 instanceof Poligono) {
+        echo "<p>Sí 2</p>"; //Sí
+    } else {
+        echo "<p>No 2</p>";
+    }
+
+    var_dump(get_class($c1));   //"Cuadrado"
+
+    var_dump(get_class_methods("Cuadrado"));
+    var_dump(get_class_vars("Cuadrado"));   //No sale nada, porque no hay ninguno público
+
+    class_alias("Cuadrado", "C");
+    $tNuevo = new C(6,"azul");
+    var_dump($tNuevo);
+
+    
+
+
+    ?>
+
+
 
 </body>
 
