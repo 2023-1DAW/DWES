@@ -31,10 +31,11 @@
 
     <h2>Pruebas con las clases de animales</h2>
     <?php
+    require_once "./clases/Nado.php";
     require_once "./clases/Animal.php"; //Este sobraría, pero como tiene _once no hay problema
     require_once "./clases/Perro.php";
     require_once "./clases/Leon.php";
-    $a = new Animal("herv");
+    //$a = new Animal("herv");
     $p = new Perro("car");
     echo "<p>" . $p->ladrar() . "</p>";
     $l = new Leon("c", 3, false);
@@ -114,13 +115,11 @@
     $tNuevo = new C(6,"azul");
     var_dump($tNuevo);
 
-    
+    $perro = new Perro("var");
+    echo $perro->nadar(5,2);
 
 
     ?>
-
-
-
 </body>
 
 </html>

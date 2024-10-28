@@ -1,5 +1,5 @@
 <?php
-final class TrianguloEquilatero extends Poligono
+final class TrianguloEquilatero extends Poligono implements Dibujo
 {
     private float $lado;
     private float $altura;
@@ -13,14 +13,17 @@ final class TrianguloEquilatero extends Poligono
         $this->altura = $altura;
     }
 
-    public function __toString(): string {
+    public function __toString(): string
+    {
         return parent::__toString() . " lado: {$this->lado} - altura: {$this->altura}";
     }
 
-    public function calcularArea(): float {
+    public function calcularArea(): float
+    {
         return $this->lado * $this->altura / 2;
     }
-    public  function calcularPerimetro(): float {
+    public  function calcularPerimetro(): float
+    {
         return $this->lado * 3;
     }
 
@@ -30,7 +33,8 @@ final class TrianguloEquilatero extends Poligono
         parent::cambiarColor("Triangulo");
     }*/
 
-    public static function calcularAreaTriangulo($base, $altura){
+    public static function calcularAreaTriangulo($base, $altura)
+    {
         return $base * $altura / 2;
     }
 
@@ -39,5 +43,7 @@ final class TrianguloEquilatero extends Poligono
         return $a * $this->lado;
     }
 */
-
+    public function dibujar(): string {
+        return "dibujo de un triangulo";
+    }
 }

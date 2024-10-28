@@ -1,6 +1,6 @@
 <?php
 
-class Animal
+abstract class Animal
 {
     private String $alimentacion;
     private int $patas;
@@ -20,6 +20,7 @@ class Animal
     {
         return $this->alimentacion . ", tiene " . $this->patas . " patas";
     }
+
 }
 
 class AnimalV2
