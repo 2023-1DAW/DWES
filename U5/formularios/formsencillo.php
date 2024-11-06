@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         label.error {
             color: red;
-            font-size: small;
+            font-size: x-small;
         }
     </style>
 </head>
