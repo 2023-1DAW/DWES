@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Comentarios</title>
 </head>
 <body>
+    <?php include "./partes/menu.php"; ?>
     <form method="POST" action="<?php echo securizar($_SERVER["PHP_SELF"]); ?>">
         <label>Comentario: *</label>
         <input type="text" name="comment" value="<?php if(!empty($comentarioCortoErr)) echo $comentario; ?>">
@@ -65,4 +66,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <input type="submit" value="Enviar">
     </form>
 </body>
+<?php include "./partes/pie.php"; ?>
 </html>

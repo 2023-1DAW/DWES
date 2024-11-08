@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body>
+<?php include "./partes/menu.php"; ?>
     <?php
     ?>
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -83,5 +84,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
      }
      ?>
 </body>
-
+<?php include "./partes/pie.php"; ?>
 </html>

@@ -70,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+<?php include "./partes/menu.php"; ?>
     <form method="POST" action="./formsencillo.php"> <!-- esto se debe mejorar -->
         <label>Nombre *: </label>
         <input
@@ -136,5 +137,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     ?>
 </body>
-
+<?php include "./partes/pie.php"; ?>
 </html>
