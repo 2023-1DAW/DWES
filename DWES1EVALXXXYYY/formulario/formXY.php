@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $suma = false;
     }
 
-    if (!$errores){
+    if (!$errores) {
         //Guardo en una sesión los valores que quiero pasar a la siguiente página:
         $_SESSION["n1"] = $n1;
         $_SESSION["n2"] = $n2;
@@ -36,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         header("Location:../indexXY.php");
         exit();
     }
-
 }
 
 ?>

@@ -84,11 +84,11 @@
     $m = new Mamifero("Perro", 450, 2);
     $animales = [$a1, $a2, $m];
     echo "<ul>";
-    foreach($animales as $a){
+    foreach ($animales as $a) {
         echo "<li>$a</li>";
     }
     echo "</ul>";
-    
+
 
     ?>
 
