@@ -27,12 +27,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errores = true;
     }
 
-    if (!$errores){
-        //SESION
-        header("Location: ./index.php");
-        exit();
-    }
+    //COOKIES:
+    setcookie("email", $email, time() + 60 * 5, "/");    //Esta cookie durará 5 minutos, visible en toda la app ("/")
+    setcookie("fecha", $fecha, time() + 60 * 60 * 24 * 30, "/"); //Dura 1 mes, visible en toda la app
+    setcookie("fecha", "", time() - 3600);    //Eliminar una cookie
 
+
+
+    var_dump($_COOKIE);
+
+    if (!$errores) {
+        //SESION
+        //header("Location: ./index.php");
+        //exit();
+    }
 }
 
 ?>
@@ -108,4 +116,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 include "./partes/pie.php";
 ?>
+
 </html>

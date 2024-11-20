@@ -5,6 +5,7 @@ include "./clases/Libro.php";
 include "./clases/Revista.php";
 session_start();
 
+
 $isbn = $titulo = $num = $autoria = "";
 $ejempalres = 1;
 
@@ -27,6 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
         $_SESSION["libros"][] = $l;
         //var_dump($_SESSION["libros"]);
+
+        //COOKIES:
+     
     }
 }
 ?>
