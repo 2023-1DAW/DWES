@@ -1,0 +1,82 @@
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: green;
+    color: white;
+    width: 45%;
+}
+
+input[type=reset] {
+    background-color: grey;
+    color: white;
+    width: 45%;
+    float: right;
+}
+
+.contenedor {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.fila::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li.menu {
+    float: left;
+}
+
+li.menu a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li.menu a:hover {
+    background-color: #111;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: darksalmon;
+    color: white;
+}
