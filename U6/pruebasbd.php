@@ -11,8 +11,9 @@ $sql = "create table if not exists alumnos (
     id varchar(8) primary key,
     nombre varchar(50) not null,
     email varchar(50) not null,
-    pass varchar(50) not null,
+    pass varchar(50) not null, 
     edad int)";
+    //
 
 //query es un método de la clase mysqli que lanza una consulta SQL a la BD
 if ($c->query($sql)) {
@@ -77,7 +78,7 @@ $email = "a@s.com";
 $edad = 55;
 
 //4. Lanzo la consulta (porque ya está completa)
-//$prepared->execute();
+$prepared->execute();
 
 //Para volver a utilizarla: solo los pasos 3 y 4:
 $pass = "1234";
@@ -85,21 +86,21 @@ $id = "445";
 $nombre = "Sara";
 $email = "a@s.com";
 $edad = 55;
-//$prepared->execute();
+$prepared->execute();
 
 $pass = "1234";
 $id = "447";
 $nombre = "Sara";
 $email = "a@s.com";
 $edad = 55;
-//$prepared->execute();
+$prepared->execute();
 
 $pass = "1234";
 $id = "446";
 $nombre = "Sara";
 $email = "a@s.com";
 $edad = 55;
-//$prepared->execute();
+$prepared->execute();
 
 echo "---------------------------------<br>";
 buscarMayores18($c);  
@@ -128,3 +129,4 @@ function buscarMayoresAEdad($conexion, $edad){
         var_dump($f);
     }
 }
+
