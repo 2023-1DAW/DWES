@@ -74,10 +74,15 @@ function verificarUsuario($email, $pass): int
     $prepared->execute();
     $r = $prepared->get_result();
     if ($r->num_rows > 0) {
-        
+        //TODO no está probado
+        $fila = $r->fetch_assoc();
+        $hash = $fila["pass"];
+        if (password_verify($pass, $hash)) {
+            return 1;
+        } else {
+            return -2;
+        }
     } else {
         return -1;
     }
-
-    //password_verify($pass , $hash)
 }

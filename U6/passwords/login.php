@@ -2,8 +2,8 @@
 session_start();
 
 //Si tengo una cookie llamada "conectado" me voy al index:
-var_dump($_COOKIE);
-var_dump($_SESSION);
+//var_dump($_COOKIE);
+//var_dump($_SESSION);
 if (isset($_COOKIE["conectado"])) {
     //header("Location: ./index.php");
     //exit();
@@ -12,6 +12,7 @@ if (isset($_COOKIE["conectado"])) {
 
 $email = $pass = "";
 $emailErr = $passErr = "";
+$errorLogin = "";
 $errores = false;
 include "./funcionesBD.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -39,10 +40,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //Guardo el mail en la sesión
         $_SESSION["email"] = $email;
 
-        if (verificarUsuario($email, $pass) > 0) {
+        $verificacion = verificarUsuario($email, $pass);
+        if ($verificacion > 0) {
             //Voy al index
-        } else {
+            header("Location: ./index.php");
+            exit();
+        } elseif ($verificacion == -1) {
             //errrores de login
+            $errorLogin = "No existe ese email.";
+        }else{
+            $errorLogin = "No coincide la contraseña.";
         }
     }
 }
@@ -58,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <label class="err"><?php echo $errorLogin; ?></label>
     <form action="" method="POST">
         Email: <input type="email" name="email"
             class="<?php if (!empty($emailErr)) echo "error"; ?>" value=""><br>
