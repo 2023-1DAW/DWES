@@ -21,4 +21,44 @@ class Oveja extends Animal
         }
         return $ret;
     }
+
+    /**
+     * Get the value of especie
+     */ 
+    public function getEspecie()
+    {
+        return $this->especie;
+    }
+
+    /**
+     * Set the value of especie
+     *
+     * @return  self
+     */ 
+    public function setEspecie($especie)
+    {
+        $this->especie = $especie;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of enferma
+     */ 
+    public function getEnferma()
+    {
+        return $this->enferma;
+    }
+
+    /**
+     * Set the value of enferma
+     *
+     * @return  self
+     */ 
+    public function setEnferma($enferma)
+    {
+        $this->enferma = $enferma;
+
+        return $this;
+    }
 }
