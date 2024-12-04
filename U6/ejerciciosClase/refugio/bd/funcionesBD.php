@@ -26,4 +26,5 @@ function guardarOveja($o){
     $sql = "INSERT into ovejas (id, peso, especie, enferma)
         values (?, ?, ?, ?)";
     $c->prepare($sql);
+    //TODO
 }
