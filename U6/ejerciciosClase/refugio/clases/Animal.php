@@ -4,8 +4,8 @@ abstract class Animal{
     private float $peso;
 
     function __construct($id, $peso){
-        $this->$id = $id;
-        $this->$peso = $peso;
+        $this->id = $id;
+        $this->peso = $peso;
     }
 
     function __toString()
