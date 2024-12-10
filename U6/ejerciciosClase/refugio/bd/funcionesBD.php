@@ -23,7 +23,8 @@ function crearTablas()
     $c->close();
 }
 
-function guardarOveja($o){
+function guardarOveja($o)
+{
     $c = conectar();
     crearTablas();
     $sql = "INSERT into ovejas (id, peso, especie, enferma)
@@ -38,7 +39,8 @@ function guardarOveja($o){
     $c->close();
 }
 
-function guardarVaca($v){
+function guardarVaca($v)
+{
     $c = conectar();
     crearTablas();
     $sql = "INSERT into vacas (id, peso)
@@ -51,7 +53,8 @@ function guardarVaca($v){
     $c->close();
 }
 
-function leerVacas(){
+function leerVacas()
+{
     $c = conectar();
     $sql = "SELECT * FROM vacas";
     $r = $c->query($sql);
@@ -59,10 +62,85 @@ function leerVacas(){
     return $r;
 }
 
-function leerOvejas(){
+function leerOvejas()
+{
     $c = conectar();
     $sql = "SELECT * FROM ovejas";
     $r = $c->query($sql);
     $c->close();
     return $r;
+}
+
+function eliminarOveja($id)
+{
+    $c = conectar();
+    $sql = "DELETE FROM ovejas WHERE id = ?";
+    $ps = $c->prepare($sql);
+    $ps->bind_param("s", $id);
+    $c->close();
+    return $ps->execute();
+}
+
+function eliminarVaca($id)
+{
+    $c = conectar();
+    $sql = "DELETE FROM vacas WHERE id = ?";
+    $ps = $c->prepare($sql);
+    $ps->bind_param("s", $id);
+    $c->close();
+    return $ps->execute();
+}
+
+function leerOveja($id)
+{
+    $c = conectar();
+    $sql = "SELECT * FROM ovejas WHERE id = ?";
+    $ps = $c->prepare($sql);
+    $ps->bind_param("s", $id);
+    $ps->execute();
+    $r = $ps->get_result();
+    $r = $r->fetch_assoc();
+    $o = new Oveja($r["id"], $r["peso"], $r["especie"], $r["enferma"]);
+    $c->close();
+    return $o;
+}
+
+function leerVaca($id)
+{
+    $c = conectar();
+    $sql = "SELECT * FROM vacas WHERE id = ?";
+    $ps = $c->prepare($sql);
+    $ps->bind_param("s", $id);
+    $ps->execute();
+    $r = $ps->get_result();
+    $r = $r->fetch_assoc();
+    $v = new Vaca($r["id"], $r["peso"]);
+    $c->close();
+    return $v;
+}
+
+function actualizarOveja($o)
+{
+    $c = conectar();
+    $sql = "UPDATE ovejas SET peso = ?, especie = ?, enferma = ? WHERE id = ?";
+    $ps = $c->prepare($sql);
+    $ps->bind_param("dsis", $peso, $especie, $enferma, $id);
+    $id = $o->getId();
+    $peso = $o->getPeso();
+    $especie = $o->getEspecie();
+    $enferma = $o->getEnferma();
+    $ps->execute();
+    $c->close();
+}
+
+function actualizarVaca($v)
+{
+    $c = conectar();
+    $sql = "UPDATE vacas SET peso = ? WHERE id = ?";
+    $ps = $c->prepare($sql);
+    $ps->bind_param("ds", $peso, $id);
+    $id = $v->getId();
+    $peso = $v->getPeso();
+    $ps->execute();
+    $c->close();
 }
