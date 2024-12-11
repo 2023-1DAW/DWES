@@ -12,7 +12,7 @@ function crearTablas()
     $c = conectar();
     $sql = "CREATE table if not exists ovejas 
         (id varchar(50),
-        peso decimal(5,2),
+        peso decimal(10,2),
         especie varchar(50),
         enferma boolean)";
     $c->query($sql);
